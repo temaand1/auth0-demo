@@ -49,7 +49,7 @@ android {
     versionName flutterVersionName
     // add this
     manifestPlaceholders = [
-        'appAuthRedirectScheme': 'com.auth0.auth0'
+        appAuthRedirectScheme: 'com.auth0.auth0'
     ]
 }
 
