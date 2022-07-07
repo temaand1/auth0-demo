@@ -2,21 +2,28 @@ import 'package:auth0/presentation/pages/login_page.dart';
 import 'package:auth0/presentation/pages/profile_page.dart';
 import 'package:auth0/presentation/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class AuthApp extends HookConsumerWidget {
+
+
+class AuthApp extends ConsumerStatefulWidget {
   const AuthApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  AuthAppState createState() => AuthAppState();
+}
+
+class AuthAppState extends ConsumerState<AuthApp> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(auth0NotifierProvider.notifier).initAction();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final auth0State = ref.watch(auth0NotifierProvider);
-    useEffect(() {
-      Future.microtask(() async {
-        ref.watch(auth0NotifierProvider.notifier).initAction();
-      });
-      return;
-    }, const []);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

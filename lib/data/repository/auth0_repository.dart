@@ -21,7 +21,7 @@ class Auth0Repository {
     return await const FlutterAppAuth().token(TokenRequest(
       AUTH0_CLIENT_ID,
       AUTH0_REDIRECT_URI,
-      issuer: AUTH0_ISSUER,
+      issuer: AUTH0_DOMAIN,
       refreshToken: storedRefreshToken,
     ));
   }

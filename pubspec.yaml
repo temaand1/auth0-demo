@@ -13,7 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_appauth: ^4.0.1
-  flutter_hooks: ^0.18.5+1
   flutter_secure_storage: ^5.0.2
   hooks_riverpod: ^1.0.4
   http: ^0.13.4
